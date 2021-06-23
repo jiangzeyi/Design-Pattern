@@ -1,11 +1,9 @@
-package cn.maxiaot.factory.simple;
+package cn.maxiaot.factory.simplefactory;
 
-import cn.maxiaot.factory.simple.calculator.Calculate;
+import cn.maxiaot.factory.simplefactory.calculator.Calculate;
 import org.junit.jupiter.api.Test;
 
 import java.util.Scanner;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SimpleFactoryTest {
     @Test

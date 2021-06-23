@@ -1,6 +1,6 @@
-package cn.maxiaot.factory.simple;
+package cn.maxiaot.factory.simplefactory;
 
-import cn.maxiaot.factory.simple.calculator.*;
+import cn.maxiaot.factory.simplefactory.calculator.*;
 
 import java.util.Arrays;
 

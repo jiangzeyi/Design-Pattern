@@ -1,4 +1,4 @@
-package cn.maxiaot.factory.simple.calculator;
+package cn.maxiaot.factory.abstractfactory.calculator;
 
 /**
  * 计算器

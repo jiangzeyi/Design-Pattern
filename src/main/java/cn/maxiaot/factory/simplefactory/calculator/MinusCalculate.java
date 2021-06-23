@@ -1,4 +1,4 @@
-package cn.maxiaot.factory.simple.calculator;
+package cn.maxiaot.factory.simplefactory.calculator;
 
 /**
  * 减法运算
