@@ -3,7 +3,6 @@ package cn.maxiaot.factory.abstractfactory;
 import cn.maxiaot.factory.abstractfactory.calculator.AreaCalculate;
 import cn.maxiaot.factory.abstractfactory.calculator.CalculateFactory;
 import cn.maxiaot.factory.abstractfactory.calculator.PerimeterCalculate;
-import cn.maxiaot.factory.simplefactory.calculator.Calculate;
 import org.junit.jupiter.api.Test;
 
 class AbstractFactoryTest {
