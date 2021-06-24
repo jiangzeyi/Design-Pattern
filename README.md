@@ -31,11 +31,6 @@ public interface PerimeterCalculator {
 ```java
 public class SquarePerimeterCalculator implements PerimeterCalculator {
 
-    /**
-     * 计算正方形周长
-     * @param n 边长
-     * @return 正方形周长
-     */
     @Override
     public double perimeterCalculator(double n) {
         BigDecimal bigDecimal = new BigDecimal(n * 4);
@@ -49,13 +44,8 @@ public class SquarePerimeterCalculator implements PerimeterCalculator {
 ```java
 public class CirclePerimeterCalculator implements PerimeterCalculator {
 
-    // 圆周率
     private static final double PI = 3.14;
-    /**
-     * 计算圆周长
-     * @param n 圆半径
-     * @return 圆周长
-     */
+
     @Override
     public double perimeterCalculator(double n) {
         BigDecimal bigDecimal = new BigDecimal(2 * PI * n);
