@@ -17,6 +17,10 @@
 
 数学中图形周长计算。众所周知图形有成千上百种。
 
+周长计算程序类图（PlantUml 生成）
+
+![simple factory](/img/simple factory.png)
+
 计算周长接口
 
 ```
