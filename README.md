@@ -19,7 +19,7 @@
 
 周长计算程序类图（PlantUml 生成）
 
-![simple factory](/img/simple factory.png)
+![simple factory](tree/main/img/simple factory.png)
 
 计算周长接口
 
