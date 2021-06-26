@@ -334,7 +334,7 @@ public class Singleton_05 {
 
 **重写 clone 方法**
 
-```
+```java
 public class Prototype_01 implements Cloneable {
 
     private String fullName;
@@ -355,7 +355,7 @@ public class Prototype_01 implements Cloneable {
 
 **序列化反序列化**
 
-```
+```java
  public class Prototype_02 implements Serializable {
 
     private String fullName;
@@ -401,7 +401,7 @@ public class Prototype_01 implements Cloneable {
 
 披萨实体
 
-```
+```java
 public class Pazz {
 
     private String taste;
@@ -414,7 +414,7 @@ public class Pazz {
 
 披萨抽象 Builder
 
-```
+```java
 public abstract class PazzBuilder {
 
     protected Pazz pazz;
@@ -437,7 +437,7 @@ public abstract class PazzBuilder {
 
 榴莲口味披萨 
 
-```
+```java
 public class DurianPazzBuilder extends PazzBuilder {
 
     @Override
@@ -456,7 +456,7 @@ public class DurianPazzBuilder extends PazzBuilder {
 
 水果披萨
 
-```
+```java
 public class FruitsPazzBuilder extends PazzBuilder {
     @Override
     public PazzBuilder choiceTaste() {
@@ -474,7 +474,7 @@ public class FruitsPazzBuilder extends PazzBuilder {
 
 服务员（通知制作披萨，并将制作好的披萨给用户）
 
-```
+```java
 public class Waiter {
 
     private PazzBuilder pazzBuilder;
@@ -496,7 +496,7 @@ public class Waiter {
 
 测试
 
-```
+```java
 public class PazzBuilderExample {
     public static void main(String[] args) {
         PazzBuilder pazzBuilder = new DurianPazzBuilder();
