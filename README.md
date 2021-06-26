@@ -1,4 +1,16 @@
 # Design Pattern
+
+## 六大原则
+
+- 单一职责原则：一个类有且只有一个改变类的原因
+- 开闭原则：对扩展开放，修改关闭
+- 里氏替换原则：子类可以在程序中替换父类对象
+- 迪米特法则原则：有内在关联的类要内聚，没直接关系的类要低耦合
+- 接口隔离原则：一个类对另一个类的依赖应该建立在最小接口上
+- 依赖倒置原则：高层模块不应该依赖于底层模块，两者都应依赖与抽象。抽象不应依赖细节，细节应依赖抽象
+
+
+
 > **设计模式**（design pattern）是对软件设计中普遍存在（反复出现）的各种问题，所提出的解决方案。
 >
 > — 维基百科
@@ -12,7 +24,6 @@
 ## 工厂模式
 
 > 普通的工厂方法模式通常伴随着对象的具体类型与工厂具体类型的一一对应，客户端代码根据需要选择合适的具体类型工厂使用。— 维基百科
->
 
 数学中图形周长计算。众所周知图形有成千上百种。
 
@@ -381,3 +392,119 @@ public class Prototype_01 implements Cloneable {
 深克隆复制后的对象与原对象互不影响
 
 实现深克隆的方式：需要克隆的引用类型重写 clone 方法、使用序列化和反序列化
+
+## 建造者模式
+
+> 建造者模式，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。— 维基百科
+
+使用建造者模式创建披萨
+
+披萨实体
+
+```
+public class Pazz {
+
+    private String taste;
+
+    private String topping;
+    
+    // 省略 getter/setter 方法
+}
+```
+
+披萨抽象 Builder
+
+```
+public abstract class PazzBuilder {
+
+    protected Pazz pazz;
+
+    public PazzBuilder makePazz() {
+        pazz = new Pazz();
+        return this;
+    }
+
+    // 选择口味
+    public abstract PazzBuilder choiceTaste();
+
+    public abstract PazzBuilder choiceTopping();
+
+    public Pazz build() {
+        return this.pazz;
+    }
+}
+```
+
+榴莲口味披萨 
+
+```
+public class DurianPazzBuilder extends PazzBuilder {
+
+    @Override
+    public PazzBuilder choiceTaste() {
+        super.pazz.setTaste("原味");
+        return this;
+    }
+
+    @Override
+    public PazzBuilder choiceTopping() {
+        super.pazz.setTopping("榴莲");
+        return this;
+    }
+}
+```
+
+水果披萨
+
+```
+public class FruitsPazzBuilder extends PazzBuilder {
+    @Override
+    public PazzBuilder choiceTaste() {
+        super.pazz.setTaste("甜");
+        return this;
+    }
+
+    @Override
+    public PazzBuilder choiceTopping() {
+        super.pazz.setTopping("水果");
+        return this;
+    }
+}
+```
+
+服务员（通知制作披萨，并将制作好的披萨给用户）
+
+```
+public class Waiter {
+
+    private PazzBuilder pazzBuilder;
+
+    public PazzBuilder getPazzBuilder() {
+        return pazzBuilder;
+    }
+
+    public void setPazzBuilder(PazzBuilder pazzBuilder) {
+        this.pazzBuilder = pazzBuilder;
+    }
+
+    public  Pazz makePazz() {
+        return pazzBuilder.makePazz()
+                .choiceTaste().choiceTopping().build();
+    }
+}
+```
+
+测试
+
+```
+public class PazzBuilderExample {
+    public static void main(String[] args) {
+        PazzBuilder pazzBuilder = new DurianPazzBuilder();
+        Waiter waiter = new Waiter();
+        waiter.setPazzBuilder(pazzBuilder);
+        Pazz pazz = waiter.makePazz();
+        System.out.println(pazz);
+    }
+}
+```
+
